@@ -64,21 +64,23 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    steps:
-      - name: Download all artifacts
-        uses: actions/download-artifact@v4
-        with:
-          path: artifacts
-          merge-multiple: true
+      steps:
+        - name: Download all artifacts
+          uses: actions/download-artifact@v4
+          with:
+            path: tmp_artifacts
+            merge-multiple: false
 
-      - name: Update release
-        uses: andelf/nightly-release@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: nightly
-          name: Nightly Release
-          body: |
-            Nightly release for all platforms
-          files: |
-            artifacts/*
+        - name: Package for Release
+          run: |
+            mkdir artifacts
+            cd tmp_artifacts
+            for d in */; do
+              zip -r "../artifacts/${d%/}.zip" "$d"
+            done
+
+        - name: Update release
+          uses: andelf/nightly-release@main
+          with:
+            files: |
+              artifacts/*
