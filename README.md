@@ -2,6 +2,8 @@
 
 A hacked together launcher for MinecraftConsoles
 
+Note: I am VERY unreliable when it comes to maintaining things long term, PRs are very welcome
+
 TODO:
 - [ ] Fix silent errors if updateinfo fails to load
 - [ ] Improve errors
@@ -11,3 +13,4 @@ TODO:
 - [ ] Configurable game download location
 - [ ] Fix weird state if interrupted mid extraction
 - [ ] Game verification
+- [ ] Launcher self updater
