@@ -57,8 +57,8 @@ jobs:
           name: nightly-${{ matrix.platform }}
           path: |
             build/linux/x64/release/bundle/
-            build/macos/Build/Products/Release/*.app
-            build/windows/x64/runner/Release/*.exe
+            build/macos/Build/Products/Release/
+            build/windows/x64/runner/Release/
   publish:
     needs: build
     runs-on: ubuntu-latest
