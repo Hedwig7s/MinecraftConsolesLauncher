@@ -58,7 +58,7 @@ jobs:
           path: |
             build/linux/x64/release/bundle/
             build/macos/Build/Products/Release/*.app
-            build/windows/runner/Release/*.exe
+            build/windows/x64/runner/Release/*.exe
   publish:
     needs: build
     runs-on: ubuntu-latest
