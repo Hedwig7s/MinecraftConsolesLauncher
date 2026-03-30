@@ -14,3 +14,4 @@ TODO:
 - [ ] Fix weird state if interrupted mid extraction
 - [ ] Game verification
 - [ ] Launcher self updater
+- [ ] Allow setting username
