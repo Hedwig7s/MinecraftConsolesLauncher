@@ -25,7 +25,7 @@ final String updateInfoPath =
 
 Future<Release> getRelease() async {
   final releases = await github.repositories
-      .listReleases(RepositorySlug('smartcmd', 'MinecraftConsoles'))
+      .listReleases(RepositorySlug('MCLCE', 'MinecraftConsoles')) // FIXME: Shouldn't be hardcoded, should probably be a variable elsewhere
       .toList();
   return releases.firstWhere(
     (release) => release.tagName == "nightly",
