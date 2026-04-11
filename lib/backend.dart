@@ -5,6 +5,7 @@ import 'package:archive/archive_io.dart';
 import 'package:dio/dio.dart';
 import 'package:github/github.dart';
 import 'package:minecraft_consoles_updater/updateinfo.dart';
+import 'package:path/path.dart' as p;
 
 enum InstallState { notStarted, downloading, extracting, completed }
 
@@ -202,7 +203,7 @@ Future<void> _startGame(String exePath, {String? wineCommand}) async {
 }
 
 Future<void> startGame() async {
-  const String exePath = "Minecraft.Client.exe";
+  final String exePath = p.canonicalize(p.join(target, "Minecraft.Client.exe"));
   if (Platform.isWindows) {
     await _startGame(exePath);
   } else {
